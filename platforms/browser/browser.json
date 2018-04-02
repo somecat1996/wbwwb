@@ -9,24 +9,11 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.project.wbwwb"
-    },
-    "cordova-plugin-screen-orientation": {
-      "PACKAGE_NAME": "com.project.wbwwb"
     }
   },
   "dependent_plugins": {},
-  "modules": [
-    {
-      "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
-      "id": "cordova-plugin-screen-orientation.screenorientation",
-      "pluginId": "cordova-plugin-screen-orientation",
-      "clobbers": [
-        "cordova.plugins.screenorientation"
-      ]
-    }
-  ],
+  "modules": [],
   "plugin_metadata": {
-    "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-screen-orientation": "3.0.1"
+    "cordova-plugin-whitelist": "1.3.3"
   }
 }

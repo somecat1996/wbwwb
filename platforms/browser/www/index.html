@@ -21,21 +21,6 @@
     </body>
 </html>
 
-<script src="cordova.js"></script>
-<script>
-    console.log(window.screen)
-    console.log(window.screen.orientation)
-    console.log('Orientation is ' + window.screen.orientation.type);
-</script>
-<script>
-    window.screen.orientation.lock('landscape').then(function success() {
-        console.log("Successfully locked the orientation");
-    }, function error(errMsg) {
-        console.log("Error locking the orientation :: " + errMsg);
-    });
-    console.log('Orientation is ' + window.screen.orientation.type);
-</script>
-
 <!-- External Libraries -->
 <script src="js/lib/pixi.min.js"></script>
 <script src="js/lib/howler.js"></script>

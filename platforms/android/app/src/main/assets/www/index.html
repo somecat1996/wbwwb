@@ -1,23 +1,23 @@
 <html>
     <head>
-    <link rel="stylesheet" href="css/game.css">
+        <link rel="stylesheet" href="css/game.css">
     </head>
     <body>
-    <div id="stage"></div>
-    <div id="modal_shade"></div>
-    <div class="overlay" id="warning">
-    <div>oh noes</div>
-    <div>
-    your browser doesn't support webgl.<br>
-    try a different browser or computer?
-    </div>
-    </div>
-    <div class="overlay" id="paused">
-    <div>paused</div>
-    <div>
-    click anywhere to resume
-    </div>
-    </div>
+        <div id="stage"></div>
+        <div id="modal_shade"></div>
+        <div class="overlay" id="warning">
+            <div>oh noes</div>
+            <div>
+                your browser doesn't support webgl.<br>
+                try a different browser or computer?
+            </div>
+        </div>
+        <div class="overlay" id="paused">
+            <div>paused</div>
+            <div>
+                click anywhere to resume
+            </div>
+        </div>
     </body>
 </html>
 
@@ -85,11 +85,8 @@
 <script src="js/scenes/Act_III.js"></script>
 <script src="js/scenes/Scene_Meta.js"></script>
 
-<!-- <script src="cordova.js"></script> -->
-
 <!-- Game Scripts -->
 <script>
-screen.orientation.lock('landscape');
 Game.stats = false;
 window.onload = function(){
     try{

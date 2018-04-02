@@ -9,14 +9,7 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.project.wbwwb"
-    },
-    "cordova-plugin-screen-orientation": {
-      "PACKAGE_NAME": "com.project.wbwwb"
     }
   },
-  "dependent_plugins": {
-    "es6-promise-plugin": {
-      "PACKAGE_NAME": "com.project.wbwwb"
-    }
-  }
+  "dependent_plugins": {}
 }
