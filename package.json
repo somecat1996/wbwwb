@@ -12,15 +12,20 @@
     "dependencies": {
         "cordova-android": "^7.0.0",
         "cordova-browser": "^5.0.3",
-        "cordova-plugin-whitelist": "^1.3.3"
+        "cordova-ios": "^4.5.4",
+        "cordova-plugin-screen-orientation": "^3.0.1",
+        "cordova-plugin-whitelist": "^1.3.3",
+        "es6-promise-plugin": "^4.2.2"
     },
     "cordova": {
         "plugins": {
-            "cordova-plugin-whitelist": {}
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-screen-orientation": {}
         },
         "platforms": [
             "android",
-            "browser"
+            "browser",
+            "ios"
         ]
     }
 }

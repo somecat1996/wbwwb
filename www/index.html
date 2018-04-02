@@ -1,25 +1,40 @@
 <html>
-	<head>
-		<link rel="stylesheet" href="css/game.css">
-	</head>
-	<body>
-		<div id="stage"></div>
-		<div id="modal_shade"></div>
-		<div class="overlay" id="warning">
-			<div>oh noes</div>
-			<div>
-			your browser doesn't support webgl.<br>
-			try a different browser or computer?
-			</div>
-		</div>
-		<div class="overlay" id="paused">
-			<div>paused</div>
-			<div>
-			click anywhere to resume
-			</div>
-		</div>
-	</body>
+    <head>
+        <link rel="stylesheet" href="css/game.css">
+    </head>
+    <body>
+        <div id="stage"></div>
+        <div id="modal_shade"></div>
+        <div class="overlay" id="warning">
+            <div>oh noes</div>
+            <div>
+                your browser doesn't support webgl.<br>
+                try a different browser or computer?
+            </div>
+        </div>
+        <div class="overlay" id="paused">
+            <div>paused</div>
+            <div>
+                click anywhere to resume
+            </div>
+        </div>
+    </body>
 </html>
+
+<script src="cordova.js"></script>
+<script>
+    console.log(window.screen)
+    console.log(window.screen.orientation)
+    console.log('Orientation is ' + window.screen.orientation.type);
+</script>
+<script>
+    window.screen.orientation.lock('landscape').then(function success() {
+        console.log("Successfully locked the orientation");
+    }, function error(errMsg) {
+        console.log("Error locking the orientation :: " + errMsg);
+    });
+    console.log('Orientation is ' + window.screen.orientation.type);
+</script>
 
 <!-- External Libraries -->
 <script src="js/lib/pixi.min.js"></script>
@@ -87,15 +102,14 @@
 
 <!-- Game Scripts -->
 <script>
-screen.orientation.lock('landscape');
 Game.stats = false;
 window.onload = function(){
-	try{
-		Game.init();
-		//Game.init("Game");
-	}catch(e){
-		document.getElementById("warning").style.display = "block";
-	}
+    try{
+    Game.init();
+    //Game.init("Game");
+    }catch(e){
+    document.getElementById("warning").style.display = "block";
+    }
 };
 window.SHARE_TEXT = "I just played this really weird game about the news. WE BECOME WHAT WE BEHOLD:"
 window.SHARE_URL = "https://ncase.itch.io/wbwwb";
