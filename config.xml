@@ -19,6 +19,12 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="orientation" value="landscape" />
+        <icon density="hdpi" src="res/icon/android/land-hdpi.png" />
+        <icon density="ldpi" src="res/icon/android/land-ldpi.png" />
+        <icon density="mdpi" src="res/icon/android/land-mdpi.png" />
+        <icon density="xhdpi" src="res/icon/android/land-xhdpi.png" />
+        <icon density="xxhdpi" src="res/icon/android/land-xxhdpi.png" />
+        <icon density="xxxhdpi" src="res/icon/android/land-xxxhdpi.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
