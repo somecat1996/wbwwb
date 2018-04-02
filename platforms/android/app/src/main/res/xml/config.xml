@@ -4,6 +4,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Compass">
+        <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
+    </feature>
     <name>WeBecomeWhatWeBehold</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -27,5 +30,9 @@
     <icon density="xxhdpi" src="res/icon/android/land-xxhdpi.png" />
     <icon density="xxxhdpi" src="res/icon/android/land-xxxhdpi.png" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="orientation" value="landscape" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="BackgroundColor" value="0x00000000" />
+    <preference name="HideKeyboardFormAccessoryBar" value="true" />
+    <preference name="Orientation" value="landscape" />
 </widget>
