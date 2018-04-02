@@ -40,7 +40,9 @@ function Scene_Post_Credits(){
     self.world = new World(self,{
         bg: "bg_dark"
     });
-    self.world.layers.bg.addChild(MakeSprite("bg_shade"));
+	var bg_shade = MakeSprite("bg_shade");
+	bg_shade.scale.x = bg_shade.scale.y = window.screen.width/960;
+    self.world.layers.bg.addChild(bg_shade);
     self.camera = new Camera(self,{
         noIntro: true,
         streaming: true,

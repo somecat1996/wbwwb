@@ -14,12 +14,14 @@ function Scene_Quote(){
 
 	// Layers, yo.
 	var q1 = MakeSprite("blackout");
+	q1.scale.x = q1.scale.y = window.screen.width/960;
 	var q2 = new PIXI.Container();
 	var q3 = new PIXI.Container();
 	var q4 = new PIXI.Container();
     
     // Text
     var q2Sprite = MakeSprite("quote0002");
+	q2Sprite.scale.x = q2Sprite.scale.y = window.screen.width/960;
     q2.addChild(q2Sprite);
     
     var q2TitleText = new PIXI.Text(textStrings["WBWWB"], {font:"65px Times", fill:"#FFFFFF", align:"center"});
@@ -44,6 +46,7 @@ function Scene_Quote(){
     q2.addChild(q2QuoteText);
     
     var q3Sprite = MakeSprite("quote0003");
+	q3Sprite.scale.x = q3Sprite.scale.y = window.screen.width/960;
     q3.addChild(q3Sprite);
     
     var q3Name = new PIXI.Text(textStrings["MarshallMcLuhan"], {font:"33px Times", fill:"#FFFFFF", align:"center"});
@@ -54,6 +57,7 @@ function Scene_Quote(){
     q3.addChild(q3Name);
     
     var q4Sprite = MakeSprite("quote0004");
+	q4Sprite.scale.x = q4Sprite.scale.y = window.screen.width/960;
     q4.addChild(q4Sprite);
     
     var q4Text = new PIXI.Text(textStrings["misatrributed"], {font:"33px Times", fill:"#FFFFFF", align:"center"});

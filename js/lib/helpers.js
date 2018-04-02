@@ -4,6 +4,22 @@ RANDOM CRAP TO MAKE MY LIFE EASIER
 
 Math.TAU = Math.PI*2;
 
+var DiviceScreenwidth = (function(screenwidth, screenheight){
+	if(screenwidth/screenheight > 16/9){
+		return screenheight*16/9;
+    } else {
+		return screenwidth;
+    }
+})(window.innerWidth || document.body.clientWidth, window.innerHeight || document.body.clientHeight);
+var DiviceScreenheight = (function(screenwidth, screenheight){
+	if(screenwidth/screenheight < 16/9){
+		return screenwidth*9/16;
+    } else {
+		return screenheight;
+    }
+})(window.innerWidth || document.body.clientWidth, window.innerHeight || document.body.clientHeight);
+
+
 // ANIMATION CRAP
 var BEAT = 1;
 var Tween_get = function(target, props){

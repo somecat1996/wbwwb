@@ -12,8 +12,8 @@ var Game = {};
 exports.Game = Game;
 
 // PROPERTIES
-Game.width = 960;
-Game.height = 540;
+Game.width = DiviceScreenwidth;
+Game.height = DiviceScreenheight;
 Game.stats = true;
 
 // INIT

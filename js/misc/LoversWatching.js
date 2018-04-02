@@ -10,13 +10,13 @@ function LoversWatching(type){
 	self.breathe = 0;
 	self.breatheSpeed = 0;
 	if(type=="circle"){
-		mc.x = 520;
-		mc.y = 380;
+		mc.x = 520*Game.width/960;
+		mc.y = 380*Game.height/540;
 		self.breatheSpeed = 0.025;
 		mc.gotoAndStop(0);
 	}else{
-		mc.x = 550;
-		mc.y = 375;
+		mc.x = 550*Game.width/960;
+		mc.y = 375*Game.height/540;
 		self.breatheSpeed = 0.020;
 		mc.gotoAndStop(1);
 	}

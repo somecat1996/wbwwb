@@ -10,7 +10,9 @@ function Scene_Preloader(){
 	Scene.call(self);
 
 	// Background!
-	Game.stage.addChild(MakeSprite("bg_preload"));
+	var background1 = MakeSprite("bg_preload");
+	background1.scale.x = background1.scale.y = DiviceScreenwidth/960;
+	Game.stage.addChild(background1);
 
 	// RECURSIVE SCREEN
 	var renderTexturePoolIndex = 0;
@@ -19,21 +21,23 @@ function Scene_Preloader(){
 		new PIXI.RenderTexture(Game.renderer, Game.width, Game.height)
 	];
 	self.stream = new PIXI.Sprite();
-	self.stream.x = 722;
-	self.stream.y = 359;
+	self.stream.x = 722*Game.width/960;
+	self.stream.y = 359*Game.height/540;
 	self.stream.scale.x = self.stream.scale.y = 0.29;
 	self.stream.anchor.x = self.stream.anchor.y = 0.5;
 	self.stream.rotation = 0.087263889;
 	Game.stage.addChild(self.stream);
 
 	// Background! #2
-	Game.stage.addChild(MakeSprite("bg_preload_2"));
+	var background2 = MakeSprite("bg_preload_2");
+	background2.scale.x = background2.scale.y = DiviceScreenwidth/960;
+	Game.stage.addChild(background2);
 
 	// Loading Bar
 	var bar = MakeMovieClip("preload_play");
 	bar.anchor.x = bar.anchor.y = 0.5;
-	bar.x = 278;
-	bar.y = 225;
+	bar.x = 278*Game.width/960;
+	bar.y = 225*Game.height/540;
 	Game.stage.addChild(bar);
 	var barEase = 0.9;
 
@@ -50,7 +54,7 @@ function Scene_Preloader(){
     playingTimeText.anchor.x = 0.5;
     playingTimeText.anchor.y = 0.5;
     playingTimeText.x = bar.x;
-    playingTimeText.y = 300;
+    playingTimeText.y = 300*DiviceScreenwidth/960;
     Game.stage.addChild(playingTimeText);
     
     // Warning text
@@ -58,7 +62,7 @@ function Scene_Preloader(){
     warningText.anchor.x = 0.5;
     warningText.anchor.y = 0.5;
     warningText.x = bar.x;
-    warningText.y = 422;
+    warningText.y = 422*DiviceScreenwidth/960;
     Game.stage.addChild(warningText);
     
     // CURSOR

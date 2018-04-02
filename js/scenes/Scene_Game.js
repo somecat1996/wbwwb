@@ -78,6 +78,7 @@ function Scene_Game(){
     /////////////
 
     var blackout = MakeSprite("blackout");
+	blackout.scale.x = blackout.scale.y = window.screen.width/960;
     Game.stage.addChild(blackout);
     Tween_get(blackout).to({alpha:0}, _s(BEAT), Ease.quadInOut).call(function(){
         Game.stage.removeChild(blackout);

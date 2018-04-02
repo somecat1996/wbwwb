@@ -21,8 +21,10 @@ function Scene_Credits(){
 	Game.stage.addChild(cont);
 	var c = {};
 	for(var i=1; i<=8; i++){
-        c[i] = new PIXI.Container();
-        c[i].addChild(MakeSprite("credits000"+i));
+        c[i] = new PIXI.Container()
+		var tmp = MakeSprite("credits000"+i)
+		tmp.scale.x = tmp.scale.y = window.screen.width/960;
+        c[i].addChild();
         c[i].alpha = 0;
 		cont.addChild(c[i]);
 	}

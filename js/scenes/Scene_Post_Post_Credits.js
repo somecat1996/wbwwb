@@ -17,11 +17,15 @@ function Scene_Post_Post_Credits(){
 	self.UNPAUSEABLE = true; // HACK.
 
 	// Layers, yo.
-	Game.stage.addChild(MakeSprite("blackout"));
+	var blackout = MakeSprite("blackout");
+	blackout.scale.x = blackout.scale.y = window.screen.width/960;
+	Game.stage.addChild(blackout);
 	var cont = new PIXI.Container();
 	Game.stage.addChild(cont);
 	cont.visible = false;
-	cont.addChild(MakeSprite("logo"));
+	var logo = MakeSprite("logo");
+	logo.scale.x = logo.scale.y = window.screen.width/960;
+	cont.addChild(logo);
 
 	// _addButton
 	var isHovering = false;
