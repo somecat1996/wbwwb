@@ -243,7 +243,7 @@ function Director(scene){
 		var cb = cam.y+cam.height/2;
 
 		for(var i=0;i<scene.world.props.length;i++){
-			
+
 			var prop = scene.world.props[i];
 
 			// prop's top-left-right-bottom
@@ -254,7 +254,7 @@ function Director(scene){
 			var pt = realY-prop.height;
 			var pb = realY;
 			var totalArea = prop.width*prop.height;
-	
+
 			// not overlapping at all
 			if(pr<cl) continue;
 			if(pl>cr) continue;
@@ -356,7 +356,7 @@ function Director(scene){
 		// Add photo texture to the TV
 		var text = self.chyron;
 		var tv = self.tv;
-		tv.placePhoto({
+		tv.placePhoto({       // NB: where the UI breaks
 			photo: self.photoTexture,
 			text: text,
 			fail: fail,
@@ -385,7 +385,7 @@ function Director(scene){
 		var tv = self.tv;
 		var x = (tv.x*3 + Game.width/2)/4;
 		var y = tv.y + tv.offset.y*3/4;
-		self.tweenViewportTo({
+		self.tweenViewportTo({    // NB: where the UI breaks
 			x: x,
 			y: y,
 			scale: 2.5
@@ -433,13 +433,13 @@ function Director(scene){
 	};
 
 	// VIEW PORT
-	self.cutViewportTo = function(view){
+	self.cutViewportTo = function(view){   // NB: where the UI breaks
 		var g = scene.world.graphics;
 		g.pivot.x = view.x;
 		g.pivot.y = view.y;
 		g.scale.x = g.scale.y = view.scale;
 	};
-	self.tweenViewportTo = function(view, time, easing){
+	self.tweenViewportTo = function(view, time, easing){   // NB: where the UI breaks
 
 		var sl, st, sr, sb; // (S)tarting left, top, right, bottom
 		var el, et, er, eb; // (E)nding left, top, right, bottom
@@ -498,7 +498,7 @@ function Director(scene){
 		};
 
 	};
-	
+
 	// Goof.
 	self.update = function(){};
 
