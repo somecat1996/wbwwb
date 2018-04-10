@@ -4,6 +4,9 @@ RANDOM CRAP TO MAKE MY LIFE EASIER
 
 Math.TAU = Math.PI*2;
 
+//add DiviceScreenwidth and DiviceScreenheight to
+// var DiviceScreenwidth = window.innerWidth || document.body.clientWidth;
+// var DiviceScreenheight = window.innerHeight || document.body.clientHeight;
 var DiviceScreenwidth = (function(screenwidth, screenheight){
 	if(screenwidth/screenheight > 16/9){
 		return screenheight*16/9;

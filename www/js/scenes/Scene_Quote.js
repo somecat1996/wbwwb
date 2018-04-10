@@ -14,57 +14,73 @@ function Scene_Quote(){
 
 	// Layers, yo.
 	var q1 = MakeSprite("blackout");
-	q1.scale.x = q1.scale.y = window.screen.width/960;
+	q1.x = Game.width;
+	q1.y = Game.height;
 	var q2 = new PIXI.Container();
 	var q3 = new PIXI.Container();
 	var q4 = new PIXI.Container();
     
     // Text
     var q2Sprite = MakeSprite("quote0002");
-	q2Sprite.scale.x = q2Sprite.scale.y = window.screen.width/960;
+	////////////////////////////////////////////////////////
+    // q2Sprite.x = Game.width;
+    // q2Sprite.y = Game.height;
+	q2Sprite.scale.x = q2Sprite.scale.y = Game.width/960;
+	////////////////////////////////////////////////////////
     q2.addChild(q2Sprite);
-    
-    var q2TitleText = new PIXI.Text(textStrings["WBWWB"], {font:"65px Times", fill:"#FFFFFF", align:"center"});
+
+	////////////////////////////////////////////////////////
+    var q2TitleText = new PIXI.Text(textStrings["WBWWB"], {font:Game.width*65/960+"px Times", fill:"#FFFFFF", align:"center"});
+	////////////////////////////////////////////////////////
     q2TitleText.anchor.x = 0.5;
     q2TitleText.anchor.y = 0.5;
-    q2TitleText.x = Game.width / 2 + 6;
-    q2TitleText.y = Game.height / 2 - 60;
+    q2TitleText.x = Game.width / 2 + 6*Game.width/960;
+    q2TitleText.y = Game.height / 2 - 60*Game.width/960;
     q2.addChild(q2TitleText);
     
     // dynamic fontsize for quote
     var quoteString = textStrings["WSOTATOTSU"]
-    var fontsize=39, max=47;
-    if(quoteString.length>max){ // more than [max] chars...
-        fontsize = Math.floor(max*fontsize/quoteString.length);
-    }
+	////////////////////////////////////////////////////////
+    // var fontsize=39, max=47;
+    // if(quoteString.length>max){ // more than [max] chars...
+    //     fontsize = Math.floor(max*fontsize/quoteString.length);
+    // }
+	var fontsize = Game.width*39/960;
+	////////////////////////////////////////////////////////
 
     var q2QuoteText = new PIXI.Text(textStrings["WSOTATOTSU"], {font:fontsize+"px Times", fill:"#FFFFFF", align:"center"});
     q2QuoteText.anchor.x = 0.5;
     q2QuoteText.anchor.y = 0.5;
-    q2QuoteText.x = Game.width / 2 + 6;
-    q2QuoteText.y = Game.height / 2 - 6;
+    q2QuoteText.x = Game.width / 2 + 6*Game.width/960;
+    q2QuoteText.y = Game.height / 2 - 6*Game.width/960;
     q2.addChild(q2QuoteText);
     
     var q3Sprite = MakeSprite("quote0003");
 	q3Sprite.scale.x = q3Sprite.scale.y = window.screen.width/960;
     q3.addChild(q3Sprite);
-    
-    var q3Name = new PIXI.Text(textStrings["MarshallMcLuhan"], {font:"33px Times", fill:"#FFFFFF", align:"center"});
+
+	////////////////////////////////////////////////////////
+    var q3Name = new PIXI.Text(textStrings["MarshallMcLuhan"], {font:Game.width*33/960+"px Times", fill:"#FFFFFF", align:"center"});
+	////////////////////////////////////////////////////////
     q3Name.anchor.x = 0.5;
     q3Name.anchor.y = 0.5;
-    q3Name.x = Game.width / 2 + 4;
-    q3Name.y = Game.height / 2 + 76;
+    q3Name.x = Game.width / 2 + 4*Game.width/960;
+    q3Name.y = Game.height / 2 + 76*Game.width/960;
     q3.addChild(q3Name);
     
     var q4Sprite = MakeSprite("quote0004");
+	////////////////////////////////////////////////////////
 	q4Sprite.scale.x = q4Sprite.scale.y = window.screen.width/960;
+	////////////////////////////////////////////////////////
     q4.addChild(q4Sprite);
-    
-    var q4Text = new PIXI.Text(textStrings["misatrributed"], {font:"33px Times", fill:"#FFFFFF", align:"center"});
+
+	////////////////////////////////////////////////////////
+    var q4Text = new PIXI.Text(textStrings["misatrributed"], {font:Game.width*33/960+"px Times", fill:"#FFFFFF", align:"center"});
+	////////////////////////////////////////////////////////
     q4Text.anchor.x = 0.5;
     q4Text.anchor.y = 0.5;
-    q4Text.x = Game.width / 2 + 4;
-    q4Text.y = Game.height / 2 + 111;
+    q4Text.x = Game.width / 2 + 4*Game.width/960;
+    q4Text.y = Game.height / 2 + 111*Game.width/960;
     q4.addChild(q4Text);
     
 	// Add 'em in.

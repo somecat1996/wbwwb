@@ -3,6 +3,7 @@
         <link rel="stylesheet" href="css/game.css">
     </head>
     <body>
+        <script src="js/lib/helpers.js"></script>
         <div id="stage"></div>
         <div id="modal_shade"></div>
         <div class="overlay" id="warning">
@@ -18,6 +19,10 @@
                 click anywhere to resume
             </div>
         </div>
+        <script>
+            document.getElementById('stage').style.width = DiviceScreenwidth;
+            document.getElementById('stage').style.height = DiviceScreenheight;
+        </script>
     </body>
 </html>
 
@@ -87,15 +92,15 @@
 
 <!-- Game Scripts -->
 <script>
-Game.stats = false;
-window.onload = function(){
-    try{
-    Game.init();
-    //Game.init("Game");
-    }catch(e){
-    document.getElementById("warning").style.display = "block";
-    }
-};
-window.SHARE_TEXT = "I just played this really weird game about the news. WE BECOME WHAT WE BEHOLD:"
-window.SHARE_URL = "https://ncase.itch.io/wbwwb";
+    Game.stats = false;
+    window.onload = function(){
+        try{
+        Game.init();
+    //    Game.init("Game");
+        }catch(e){
+        document.getElementById("warning").style.display = "block";
+        }
+    };
+    window.SHARE_TEXT = "I just played this really weird game about the news. WE BECOME WHAT WE BEHOLD:"
+    window.SHARE_URL = "https://ncase.itch.io/wbwwb";
 </script>

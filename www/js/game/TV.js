@@ -19,10 +19,12 @@ function TV(scene){
 
 	// Properties
 	self.scene = scene;
+	////////////////////////////////////////////////////////
 	self.x = Game.width/2;
-	self.y = Game.height/2 + 80;
+	self.y = Game.height/2 + 80*Game.width/960;
 	self.width = 150*Game.width/960;
 	self.height = 180*Game.height/540;
+	////////////////////////////////////////////////////////
 
 	// Graphics
 	var resources = PIXI.loader.resources;
@@ -37,7 +39,7 @@ function TV(scene){
     // Offset
     self.offset = {
     	x: 0,
-    	y: -113.5,
+    	y: -113.5*Game.width/960,
     	scale: 8
     };
 

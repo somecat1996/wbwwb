@@ -39,11 +39,11 @@ body{
 
 }
 .overlay > div:nth-child(1){
-	font-size: 20%;
-	line-height: 20%;
+	font-size: 100px;
+	line-height: 100px;
 }
 .overlay > div:nth-child(2){
-	font-size: 5%;
+	font-size: 20px;
 }
 #modal_shade{
 	display: none;

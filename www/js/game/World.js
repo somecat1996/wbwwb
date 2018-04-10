@@ -30,6 +30,9 @@ function World(scene, options){
 	self.layers.bg = new PIXI.Container();
 	g.addChild(self.layers.bg);
 	var bg = MakeSprite(options.bg ? options.bg : "bg");
+	////////////////////////////////////////////////////////
+	bg.scale.x = bg.scale.y = Game.width/960;
+	////////////////////////////////////////////////////////
 	bg.position.x = -100;  // NB: may need to be interactive
     bg.position.y = -100;  // NB: may need to be interactive
     self.layers.bg.addChild(bg);
