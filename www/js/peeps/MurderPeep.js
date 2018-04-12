@@ -55,11 +55,11 @@ function MurderPeep(scene){
         self.x = scene.tv.x;
         self.y = scene.tv.y+Math.random(); // tiny offset to avoid glitchy depth-sort
         if(shapeType=="circle"){
-            self.x -= 60;
+            self.x -= 60*Game.width/960;
             self.flip = 1;
             self.gracePeriod = 30;
         }else{
-            self.x += 60;
+            self.x += 60*Game.width/960;
             self.flip = -1;
             self.gracePeriod = 50;
         }
@@ -86,7 +86,7 @@ function MurderPeep(scene){
 
         // stay within game frame
         self.stayWithinRect({
-            l:100, r:860, t:100, b:480
+            l:100*Game.width/960, r:860*Game.width/960, t:100*Game.width/960, b:480*Game.width/960
         },0.15);
 
         // FRAMES: MANUALLY

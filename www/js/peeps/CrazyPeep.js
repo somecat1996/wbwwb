@@ -26,8 +26,8 @@ function CrazyPeep(scene){
     self.bodyMC.anchor.x = 0.33; // not quite
 
     // STARTING POS & DIRECTION
-    self.x = 1200;
-    self.y = 330;
+    self.x = 1200*Game.width/960;
+    self.y = 330*Game.width/960;
     self.direction = Math.PI;
     self.loop = false;
 
@@ -72,7 +72,7 @@ function CrazyPeep(scene){
         // STAY WITHIN GAME FRAME
         if(self.wanderGracePeriod<=0){
             self.stayWithinRect({
-                l:100, r:860, t:100, b:480
+                l:100*Game.width/960, r:860*Game.width/960, t:100*Game.width/960, b:480*Game.width/960
             },0.15);
         }
 

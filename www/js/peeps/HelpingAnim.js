@@ -20,12 +20,12 @@ function HelpingAnim(scene){
     self._CLASS_ = "HelpingAnim";
 
 	// INIT
-    self.init(180, 170, "helping");
+    self.init(180*Game.width/960, 170*Game.width/960, "helping");
 
     // AVOID SPOT
     var spot = {
         x: self.x,
-        y: self.y-40,
+        y: self.y-40*Game.width/960,
         radius: 170
     };
     scene.avoidSpots.push(spot);
@@ -97,8 +97,8 @@ function HelpingAnim(scene){
 
         // Put in lovers #2, they just run off screen.
         var lover1 = new LoverPeep(self.scene);
-        lover1.x = 188;
-        lover1.y = 165;
+        lover1.x = 188*Game.width/960;
+        lover1.y = 165*Game.width/960;
         lover1.setType("circle");
         lover1.startWalking();
         lover1.hatMC.visible = false;
@@ -108,8 +108,8 @@ function HelpingAnim(scene){
 
         var lover2 = new LoverPeep(self.scene);
         lover2.follow(lover1);
-        lover2.x = 235;
-        lover2.y = 165;
+        lover2.x = 235*Game.width/960;
+        lover2.y = 165*Game.width/960;
         lover2.setType("square");
         lover2.startWalking();
         lover2.faceMC.gotoAndStop(6);

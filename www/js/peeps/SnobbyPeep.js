@@ -62,7 +62,7 @@ function SnobbyPeep(scene){
 
         // stay within game frame
         self.stayWithinRect({
-            l:100, r:860, t:100, b:480
+            l:100*Game.width/960, r:860*Game.width/960, t:100*Game.width/960, b:480*Game.width/960
         },0.05);
 
         // FRAMES: MANUALLY

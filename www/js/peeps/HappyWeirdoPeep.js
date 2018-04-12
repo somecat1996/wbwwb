@@ -18,8 +18,8 @@ function HappyWeirdoPeep(scene){
     self._CLASS_ = "HappyWeirdoPeep";
 
     // position
-    self.x = 115;
-    self.y = 170;
+    self.x = 115*Game.width/960;
+    self.y = 170*Game.width/960;
 
 	// MAD SPRITE
     var g = self.graphics;
@@ -51,7 +51,7 @@ function HappyWeirdoPeep(scene){
 
         // STAY WITHIN GAME FRAME
         self.stayWithinRect({
-            l:100, r:860, t:100, b:480
+            l:100*Game.width/960, r:860*Game.width/960, t:100*Game.width/960, b:480*Game.width/960
         },0.15);
 
         // Animation! on quadtriples.
@@ -118,16 +118,16 @@ function HappyWeirdoPeep(scene){
 
         // Wobble in place
         self.stopWalking();
-        self.x = 540;
-        self.y = 470;
+        self.x = 540*Game.width/960;
+        self.y = 470*Game.width/960;
         self.vel.x = -1;
         self.vel.y = 0;
         self.flip = -1;
 
         // AVOID SPOT. BAD STUFF GON' HAPPEN.
         var spot = {
-            x: 480,
-            y: 430,
+            x: 480*Game.width/960,
+            y: 430*Game.width/960,
             radius: 150
         };
         scene.avoidSpots.push(spot);

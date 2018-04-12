@@ -32,8 +32,8 @@ function LoverPeep(scene){
     };
 
     // STARTING POS
-    self.x = 1000;
-    self.y = 580;
+    self.x = 1000*Game.width/960;
+    self.y = 580*Game.width/960;
 
     // Follow?
     self.follows = null;
@@ -46,26 +46,26 @@ function LoverPeep(scene){
         if(self.follows){
 
             var f = self.follows;
-            var tx = f.x - Math.cos(f.direction)*20;
-            var ty = f.y - Math.sin(f.direction)*20;
+            var tx = f.x - Math.cos(f.direction)*20*Game.width/960;
+            var ty = f.y - Math.sin(f.direction)*20*Game.width/960;
 
             // LOOP THEM BOUNDS
-            var margin = 50;
+            var margin = 50*Game.width/960;
             var dx = tx-self.x;
-            while(dx>300){
+            while(dx>300*Game.width/960){
                 tx -= Game.width+margin*2;
                 dx = tx-self.x;
             }
-            while(dx<-300){
+            while(dx<-300*Game.width/960){
                 tx += Game.width+margin*2;
                 dx = tx-self.x;
             }
             var dy = ty-self.y;
-            while(dy>300){
+            while(dy>300*Game.width/960){
                 ty -= Game.height+margin*2;
                 dy = ty-self.y;
             }
-            while(dy<-300){
+            while(dy<-300*Game.width/960){
                 ty += Game.height+margin*2;
                 dy = ty-self.y;
             }
@@ -81,12 +81,12 @@ function LoverPeep(scene){
 
         }
 
-        if(self.follows && self.isEmbarrassed && self.x>1100){
+        if(self.follows && self.isEmbarrassed && self.x>1100*Game.width/960){
             self.follows.kill();
             self.kill();
         }
 
-        if(self.follows && self.x<-500){
+        if(self.follows && self.x<-500*Game.width/960){
             self.follows.kill();
             self.kill();
         }
@@ -120,9 +120,9 @@ function LoverPeep(scene){
         self.x = tv.x;
         self.y = tv.y-5-Math.random(); // tiny offset to avoid glitchy depth-sort
         if(self.type=="square"){
-            self.x += 80;
+            self.x += 80*Game.width/960;
         }else{
-            self.x += 120;
+            self.x += 120*Game.width/960;
         }
         self.stopWalking(true);
         self.faceMC.gotoAndStop(9);

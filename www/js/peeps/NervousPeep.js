@@ -53,7 +53,7 @@ function NervousPeep(scene){
 
         // stay within game frame
         self.stayWithinRect({
-            l:150, r:810, t:150, b:450
+            l:150*Game.width/960, r:810*Game.width/960, t:150*Game.width/960, b:450*Game.width/960
         },0.05);
 
         // FRAMES: MANUALLY
