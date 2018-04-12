@@ -50,10 +50,11 @@ function Scene_Post_Credits(){
         onTakePhoto: function(){
             //if(self.camera.isOverTV()){
             Game.sounds.bg_nighttime.stop();
-            // Game.sceneManager.gotoScene("Game");
-            tmp = document.querySelector("#stage").childNodes[0];
-            document.querySelector("#stage").removeChild(tmp);
-            Game.init();
+            // tmp = document.querySelector("#stage").childNodes[0];
+            // document.querySelector("#stage").removeChild(tmp);
+            // Game.init();
+            // Game.sceneManager.gotoScene("Preloader");
+            Game.sceneManager.gotoScene("Quote");
             //}
         }
     });
@@ -62,11 +63,11 @@ function Scene_Post_Credits(){
 
     // Put a SPRITE RIGHT IN THE BG
     self.stream = new PIXI.Sprite();
-    self.stream.width = Game.width/8;
-    self.stream.height = Game.height/8;
+    self.stream.width = Game.width/9.5;
+    self.stream.height = Game.height/9.5;
     self.stream.anchor.x = self.stream.anchor.y = 0.5;
-    self.stream.x = Game.width/2 - 2*Game.width/960; // hack
-    self.stream.y = Game.height/2 + 2*Game.width/960; // hack
+    self.stream.x = Game.width/2 - 1*Game.width/960; // hack
+    self.stream.y = Game.height/2 + 1*Game.width/960; // hack
     self.world.layers.bg.addChild(self.stream);
 
     // UPDATE
@@ -86,29 +87,33 @@ function Scene_Post_Credits(){
 
     // Candlelights
     var candlePositions =[
-        [468.6,276.6],
-        [535.7,281.6],
-        [679.7,279.1],
-        [612,281.6],
-        [490.1,314.1],
-        [421.8,309],
-        [363.1,301.1],
-        [786.9,304.4],
-        [726.1,310.5],
-        [656.9,309.5],
-        [869.8,350.3],
-        [820,373.5],
-        [768.2,382.8],
-        [698.4,389],
-        [464.6,386.1],
-        [396.3,382.3],
-        [339.6,370.1],
-        [294.3,350.3]
+        [-90,-82],
+        [-35,-77],
+        [27,-77],
+        [81,-81],
+        [-178,-60],
+        [-132,-55],
+        [-75,-53],
+        [65,-55],
+        [122,-52],
+        [171,-58],
+        [-235,-20],
+        [-200,-5],
+        [-152,5],
+        [-95,9],
+        [97,10],
+        [156,5],
+        [199,-3],
+        [240,-22]
     ];
     for(var i=0;i<candlePositions.length;i++){
         var pos = candlePositions[i];
+        // pos[0] = 480;
+        // pos[1] = 270;
         pos[0] *= Game.width/960;
         pos[1] *= Game.width/960;
+        pos[0] += Game.width/2;
+        pos[1] += Game.height/2;
         var candle = new Candlelight(pos);
         self.world.addBG(candle);
     }
