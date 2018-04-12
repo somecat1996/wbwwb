@@ -34,7 +34,7 @@ function Peep(scene){
     self.hop = Math.random();
     self._lastHop = self.hop;
 
-    self.speed = 1 + Math.random()*0.3*Game.width/960;
+    self.speed = (1 + Math.random()*0.3)*Game.width/960;
     self.direction = Math.random()*Math.PI*2;
     self.vel = {x:0,y:0};
     self.flip = 1;

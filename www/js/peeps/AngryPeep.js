@@ -113,7 +113,7 @@ function AngryPeep(scene, type){
         // Grace period... AND IF SCENE ALLOWS IT.
         if(self.gracePeriod<=0 && !scene.noYellingYet){
             var opposite = (self.type=="circle") ? "square" : "circle";
-            var closeTo = self.touchingPeeps(90, function(peep){
+            var closeTo = self.touchingPeeps(90*DiviceScreenwidth/960, function(peep){
                 return(!peep.offended && peep.isWalking && peep.type==opposite);
             });
             if(self.isWalking && closeTo.length>0){

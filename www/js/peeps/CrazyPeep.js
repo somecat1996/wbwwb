@@ -78,7 +78,7 @@ function CrazyPeep(scene){
 
         // BUMP the walking peeps I'm close to.
         if(self.gracePeriod<=0){
-            var closeTo = self.touchingPeeps(50, function(peep){
+            var closeTo = self.touchingPeeps(50*DiviceScreenwidth/960, function(peep){
                 return peep.isWalking;
             });
             if(closeTo.length>0 && self.isWalking){

@@ -30,71 +30,71 @@ function Scene_Credits(){
 	}
     
     // add text
-    var createdByText = new PIXI.Text(textStrings["createdBy"], {font: "46px Times", fill:"#FFFFFF", align: "left"});
+    var createdByText = new PIXI.Text(textStrings["createdBy"], {font:DiviceScreenwidth*64/960+"px Times", fill:"#FFFFFF", align: "left"});
     createdByText.anchor.x = 0.0;
     createdByText.anchor.y = 0.5;
-    createdByText.x = Game.width / 2 - 240;
-    createdByText.y = Game.height / 2 - 41;
+    createdByText.x = Game.width / 2 - 240*DiviceScreenwidth/960;
+    createdByText.y = Game.height / 2 - 41*DiviceScreenwidth/960;
     c[1].addChild(createdByText);
     
-    var authorText = new PIXI.Text(textStrings["NickyCase"], {font: "86px Times", fill:"#FFFFFF", align: "left"});
+    var authorText = new PIXI.Text(textStrings["NickyCase"], {font: DiviceScreenwidth*86/960+"px Times", fill:"#FFFFFF", align: "left"});
     authorText.anchor.x = 0.0;
     authorText.anchor.y = 0.5;
-    authorText.x = Game.width / 2 - 240;
-    authorText.y = Game.height / 2 + 29;
+    authorText.x = Game.width / 2 - 240*DiviceScreenwidth/960;
+    authorText.y = Game.height / 2 + 29*DiviceScreenwidth/960;
     c[1].addChild(authorText);
     
-    var playtestersText = new PIXI.Text(textStrings["manyThanks"], {font: "44px Times", fill:"#FFFFFF", align: "right"});
+    var playtestersText = new PIXI.Text(textStrings["manyThanks"], {font: DiviceScreenwidth*44/960+"px Times", fill:"#FFFFFF", align: "right"});
     playtestersText.anchor.x = 1.0;
     playtestersText.anchor.y = 0.5;
-    playtestersText.x = Game.width / 2 + 262;
-    playtestersText.y = Game.height / 2 - 140;
+    playtestersText.x = Game.width / 2 + 262*DiviceScreenwidth/960;
+    playtestersText.y = Game.height / 2 - 140*DiviceScreenwidth/960;
     c[2].addChild(playtestersText);
     
     // @TODO: Yes, I feel physical pain hacking this in the way I did in the following lines,
     // but I don't know PIXI enough to do this properly... /sl
     
-    var supportersText1 = new PIXI.Text(textStrings["patreonSupporters"], {font: "45px Times", fill:"#FFFFFF", align: "left"});
+    var supportersText1 = new PIXI.Text(textStrings["patreonSupporters"], {font: DiviceScreenwidth*45/960+"px Times", fill:"#FFFFFF", align: "left"});
     supportersText1.anchor.x = 0.0;
     supportersText1.anchor.y = 0.5;
-    supportersText1.x = 63;
-    supportersText1.y = 111;
+    supportersText1.x = 63*DiviceScreenwidth/960;
+    supportersText1.y = 111*DiviceScreenwidth/960;
     c[3].addChild(supportersText1);
     
-    var supportersText2 = new PIXI.Text(textStrings["patreonSupporters"], {font: "45px Times", fill:"#FFFFFF", align: "left"});
+    var supportersText2 = new PIXI.Text(textStrings["patreonSupporters"], {font: DiviceScreenwidth*45/960+"px Times", fill:"#FFFFFF", align: "left"});
     supportersText2.anchor.x = 0.0;
     supportersText2.anchor.y = 0.5;
-    supportersText2.x = 63;
-    supportersText2.y = 111;
+    supportersText2.x = 63*DiviceScreenwidth/960;
+    supportersText2.y = 111*DiviceScreenwidth/960;
     c[4].addChild(supportersText2);
     
-    var supportersText3 = new PIXI.Text(textStrings["patreonSupporters"], {font: "45px Times", fill:"#FFFFFF", align: "left"});
+    var supportersText3 = new PIXI.Text(textStrings["patreonSupporters"], {font: DiviceScreenwidth*45/960+"px Times", fill:"#FFFFFF", align: "left"});
     supportersText3.anchor.x = 0.0;
     supportersText3.anchor.y = 0.5;
-    supportersText3.x = 63;
-    supportersText3.y = 111;
+    supportersText3.x = 63*DiviceScreenwidth/960;
+    supportersText3.y = 111*DiviceScreenwidth/960;
     c[5].addChild(supportersText3);
     
-    var supportersText4 = new PIXI.Text(textStrings["patreonSupporters"], {font: "45px Times", fill:"#FFFFFF", align: "left"});
+    var supportersText4 = new PIXI.Text(textStrings["patreonSupporters"], {font: DiviceScreenwidth*45/960+"px Times", fill:"#FFFFFF", align: "left"});
     supportersText4.anchor.x = 0.0;
     supportersText4.anchor.y = 0.5;
-    supportersText4.x = 63;
-    supportersText4.y = 111;
+    supportersText4.x = 63*DiviceScreenwidth/960;
+    supportersText4.y = 111*DiviceScreenwidth/960;
     c[6].addChild(supportersText4);
     
     // thankYouText comes before finallyText so finallyText can be aligned based on thankYouText. /sl
-    var thankYouText = new PIXI.Text(textStrings["thankYouForPlaying"], {font: "55px Times", fill:"#FFFFFF", align: "center"});
+    var thankYouText = new PIXI.Text(textStrings["thankYouForPlaying"], {font: DiviceScreenwidth*55/960+"px Times", fill:"#FFFFFF", align: "center"});
     thankYouText.anchor.x = 0.5;
     thankYouText.anchor.y = 0.5;
-    thankYouText.x = Game.width / 2 + 10;
-    thankYouText.y = Game.height / 2 + 25;
+    thankYouText.x = Game.width / 2 + 10*DiviceScreenwidth/960;
+    thankYouText.y = Game.height / 2 + 25*DiviceScreenwidth/960;
     c[8].addChild(thankYouText);
     
-    var finallyText = new PIXI.Text(textStrings["lastButNotLeast"], {font: "37px Times", fill:"#FFFFFF", align: "left"});
+    var finallyText = new PIXI.Text(textStrings["lastButNotLeast"], {font: DiviceScreenwidth*37/960+"px Times", fill:"#FFFFFF", align: "left"});
     finallyText.anchor.x = 0.0;
     finallyText.anchor.y = 0.5;
     finallyText.x = thankYouText.getBounds().x;
-    finallyText.y = Game.height / 2 - 30;
+    finallyText.y = Game.height / 2 - 30*DiviceScreenwidth/960;
     c[7].addChild(finallyText);
     
 	// TWEEN ANIM

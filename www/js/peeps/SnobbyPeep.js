@@ -122,7 +122,7 @@ function SnobbyPeep(scene){
         if(!self.isSmug){
 
             if(self.gracePeriod<=0){
-                var closeTo = self.touchingPeeps(90, function(peep){
+                var closeTo = self.touchingPeeps(90*DiviceScreenwidth/960, function(peep){
                     return(!peep.offended && peep.type=="circle");
                 });
                 if(closeTo.length>0 && self.isWalking){
