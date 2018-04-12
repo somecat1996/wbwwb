@@ -89,12 +89,12 @@ function Scene_Game(){
     ////////////
 
     Stage_Start(self);
-    Stage_Hat(self);
+    //Stage_Hat(self);
     //Stage_Lovers(self);
     //Stage_Screamer(self, true);
     //Stage_Nervous(self, true);
     //Stage_Snobby(self, true);
     //Stage_Angry_Escalation(self, true);
-    //Stage_Evil(self, true);
+    Stage_Evil(self, true);
 
 }

@@ -131,8 +131,8 @@ function Stage_Panic(self){
     // ONLY ONE AVOIDSPOT
     self.avoidSpots.splice(0, self.avoidSpots.length);
     self.avoidSpots.push({
-        x: 530,
-        y: 430,
+        x: 530*Game.width/960,
+        y: 430*Game.width/960,
         radius: 150
     });
 
