@@ -41,7 +41,8 @@ function Scene_Post_Credits(){
         bg: "bg_dark"
     });
 	var bg_shade = MakeSprite("bg_shade");
-	bg_shade.scale.x = bg_shade.scale.y = window.screen.width/960;
+	bg_shade.x = Game.width;
+    bg_shade.y = Game.height;
     self.world.layers.bg.addChild(bg_shade);
     self.camera = new Camera(self,{
         noIntro: true,
@@ -49,7 +50,10 @@ function Scene_Post_Credits(){
         onTakePhoto: function(){
             //if(self.camera.isOverTV()){
             Game.sounds.bg_nighttime.stop();
-            Game.sceneManager.gotoScene("Post_Post_Credits");
+            // Game.sceneManager.gotoScene("Game");
+            tmp = document.querySelector("#stage").childNodes[0];
+            document.querySelector("#stage").removeChild(tmp);
+            Game.init();
             //}
         }
     });
@@ -60,8 +64,9 @@ function Scene_Post_Credits(){
     self.stream = new PIXI.Sprite();
     self.stream.width = Game.width/8;
     self.stream.height = Game.height/8;
-    self.stream.x = Game.width/2 - self.stream.width/2 - 2; // hack
-    self.stream.y = Game.height/2 - self.stream.height/2 + 2; // hack
+    self.stream.anchor.x = self.stream.anchor.y = 0.5;
+    self.stream.x = Game.width/2 - 2*Game.width/960; // hack
+    self.stream.y = Game.height/2 + 2*Game.width/960; // hack
     self.world.layers.bg.addChild(self.stream);
 
     // UPDATE
@@ -102,6 +107,8 @@ function Scene_Post_Credits(){
     ];
     for(var i=0;i<candlePositions.length;i++){
         var pos = candlePositions[i];
+        pos[0] *= Game.width/960;
+        pos[1] *= Game.width/960;
         var candle = new Candlelight(pos);
         self.world.addBG(candle);
     }
@@ -119,8 +126,8 @@ function Scene_Post_Credits(){
     for(var i=0;i<cricketPositions.length;i++){
         var pos = cricketPositions[i];
         var cricket = new Cricket(self);
-        cricket.x = pos[0];
-        cricket.y = pos[1];
+        cricket.x = pos[0]*Game.width/960;
+        cricket.y = pos[1]*Game.width/960;
         cricket.mc.gotoAndStop(1);
         self.world.addProp(cricket);
     }
@@ -130,6 +137,7 @@ function Scene_Post_Credits(){
     /////////////
 
     var blackout = MakeSprite("blackout");
+    blackout.scale.x = blackout.scale.y = Game.width/960;
     Game.stage.addChild(blackout);
     Tween_get(blackout).to({alpha:0}, _s(BEAT), Ease.quadInOut).call(function(){
         Game.stage.removeChild(blackout);

@@ -58,6 +58,7 @@ var MakeMovieClip = function(resourceName){
 	mc.gotoAndStop(0);
 	mc.anchor.x = 0.5;
 	mc.anchor.y = 1.0;
+	mc.scaleX = mc.scaleY = DiviceScreenwidth/960;
 
 	// Return
 	return mc;

@@ -139,6 +139,7 @@ Game.loadAssets = function(completeCallback, progressCallback, PRELOADER){
 
 	// PIXI
 	var loader = PIXI.loader;
+	loader.reset();
 	var resources = PIXI.loader.resources;
 
 	for(var key in manifest){
@@ -155,7 +156,8 @@ Game.loadAssets = function(completeCallback, progressCallback, PRELOADER){
 		}
 
 		// Otherwise, is an image. Leave it to PIXI.
-	    loader.add(key, src);
+		loader.add(key, src);
+
 
 	}
 

@@ -33,8 +33,9 @@ function World(scene, options){
 	////////////////////////////////////////////////////////
 	bg.scale.x = bg.scale.y = Game.width/960;
 	////////////////////////////////////////////////////////
-	bg.position.x = -100;  // NB: may need to be interactive
-    bg.position.y = -100;  // NB: may need to be interactive
+	bg.anchor.x = bg.anchor.y = 0.5;
+	bg.position.x = Game.width/2;  // NB: may need to be interactive
+    bg.position.y = Game.height/2;  // NB: may need to be interactive
     self.layers.bg.addChild(bg);
     self.bg = [];
     self.addBG = function(bg){
