@@ -121,13 +121,13 @@ function Director(scene){
 	            var watchTV = false;
 	            if(p.type=="circle" && circlesLeft>0){
 	            	flip = 1;
-	            	offset = 60 + (data.audienceCircles-circlesLeft)*40;
+	            	offset = 60*Game.width/960 + (data.audienceCircles-circlesLeft)*40*Game.width/960;
 	            	watchTV = true;
 	            	circlesLeft--;
 	            }
 	            if(p.type=="square" && squaresLeft>0){
 	            	flip = -1;
-	            	offset = 60 + (data.audienceSquares-squaresLeft)*40;
+	            	offset = 60*Game.width/960 + (data.audienceSquares-squaresLeft)*40*Game.width/960;
 	            	watchTV = true;
 	            	squaresLeft--;
 	            }

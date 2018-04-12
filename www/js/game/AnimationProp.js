@@ -24,7 +24,7 @@ function AnimationProp(scene){
     self.graphics = g;
 
 	// DO IT.
-	self.DRAWING_SCALE = 0.65;
+	self.DRAWING_SCALE = 0.65*Game.width/960;
 	self.init = function(x, y, resourceName){
 
 		// Make it!

@@ -17,12 +17,12 @@ function ProtestAnim(scene){
     self._CLASS_ = "ProtestAnim";
 
 	// INIT
-    self.init(650, 200, "peace");
+    self.init(650*Game.width/960, 200*Game.width/960, "peace");
 
     // AVOID SPOT
     var spot = {
-        x: 640,
-        y: 150,
+        x: 640*Game.width/960,
+        y: 150*Game.width/960,
         radius: 150
     };
     scene.avoidSpots.push(spot);

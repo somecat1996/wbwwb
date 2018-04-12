@@ -14,7 +14,7 @@ function Blood(scene){
 	self._CLASS_ = "Blood";
 
 	// Graphics: Layers to this peep.
-	self.DRAWING_SCALE = 0.65;
+	self.DRAWING_SCALE = 0.65*Game.width/960;
     var g = new PIXI.Container();
     self.graphics = g;
     self.mc = MakeMovieClip("blood");

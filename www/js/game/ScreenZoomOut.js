@@ -17,8 +17,8 @@ function ScreenZoomOut(scene){
 	self.laptop = null;
 	self.scale = 1;
 
-	var offsetX = 816;
-	var offsetY = 459;
+	var offsetX = 816*Game.width/960;
+	var offsetY = 459*Game.width/960;
 
 	self.init = function(){
 
@@ -27,6 +27,7 @@ function ScreenZoomOut(scene){
 
 		// Put it on!
 		self.laptop = MakeSprite("laptop");
+		self.laptop.scale.x = self.laptop.scale.y = Game.width/960;
 		self.laptop.x = -offsetX;
 		self.laptop.y = -offsetY;
     	scene.graphics.addChild(self.laptop);

@@ -49,19 +49,19 @@ function Camera(scene, options){
 	var resources = PIXI.loader.resources;
 
 	self.flash = new PIXI.Sprite(resources.cam_flash.texture);
-	self.flash.scale.x = self.flash.scale.y = 0.5;
+	self.flash.scale.x = self.flash.scale.y = 0.5*Game.width/960;
     self.flash.anchor.x = self.flash.anchor.y = 0.5;
     self.flash.alpha = 0;
     self.graphics.addChild(self.flash);
 
 	self.frame = new PIXI.Sprite(resources.cam_frame.texture);
-	self.frame.scale.x = self.frame.scale.y = 0.5;
+	self.frame.scale.x = self.frame.scale.y = 0.5*Game.width/960;
     self.frame.anchor.x = self.frame.anchor.y = 0.5;
     self.graphics.addChild(self.frame);
 
 	if(!options.noIntro){
 	    self.instructions = new PIXI.Sprite(resources.cam_instructions.texture);
-		self.instructions.scale.x = self.instructions.scale.y = 0.5;
+		self.instructions.scale.x = self.instructions.scale.y = 0.5*Game.width/960;
 	    self.instructions.anchor.x = 0.5;
 	    self.instructions.anchor.y = 0;
 	    self.instructions.y = 67.5;

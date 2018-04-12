@@ -14,7 +14,7 @@ function Peep(scene){
 	self.scene = scene;
 	self.x = Math.random()*Game.width;
 	self.y = Math.random()*Game.height;
-	self.DRAWING_SCALE = 0.65;
+	self.DRAWING_SCALE = 0.65*Game.width/960;
 	self.width = 80*self.DRAWING_SCALE;
 	self.height = 120*self.DRAWING_SCALE;
 
@@ -34,7 +34,7 @@ function Peep(scene){
     self.hop = Math.random();
     self._lastHop = self.hop;
 
-    self.speed = 1 + Math.random()*0.5;
+    self.speed = 1 + Math.random()*0.3*Game.width/960;
     self.direction = Math.random()*Math.PI*2;
     self.vel = {x:0,y:0};
     self.flip = 1;

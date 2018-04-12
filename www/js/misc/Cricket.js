@@ -11,7 +11,7 @@ function Cricket(scene){
 	var mc = MakeMovieClip("cricket");
 	self.graphics = mc;
 	self.mc = mc;
-	var DRAWING_SCALE = 0.25;
+	var DRAWING_SCALE = 0.25*Game.width/960;
 	mc.scale.x = mc.scale.y = DRAWING_SCALE;
 
 	self.width = 137*DRAWING_SCALE;

@@ -38,8 +38,8 @@ function ScreenShake(scene){
 		// Fuzz that snowscreen
 		if(self.snow){
 			self.snow.alpha = self.snow.alpha*0.95 + self.baseAlpha*0.05;
-			self.snow.scale.x = 1 + Math.random()*0.2;
-			self.snow.scale.y = 1 + Math.random()*0.2;
+			self.snow.scale.x = 1 + Math.random()*0.2*Game.width/960;
+			self.snow.scale.y = 1 + Math.random()*0.2*Game.width/960;
 			if(Math.random()<0.5) self.snow.scale.x*=-1;
 			if(Math.random()<0.5) self.snow.scale.y*=-1;
 		}

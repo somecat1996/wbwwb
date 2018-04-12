@@ -30,7 +30,7 @@ function TV(scene){
 	var resources = PIXI.loader.resources;
     var g = new PIXI.Container();
     var bg = new PIXI.Sprite(resources.tv.texture);
-	bg.scale.x = bg.scale.y = window.screen.width/1920;
+	bg.scale.x = bg.scale.y = Game.width/1920;
     bg.anchor.x = 0.5;
     bg.anchor.y = 1;
     g.addChild(bg);
@@ -72,6 +72,7 @@ function TV(scene){
 
 		// Add photo now
 		photo = new PIXI.Sprite(photoTexture);
+		photo.scale.x = photo.scale.y = 0.5;
 	    photoContainer.addChild(photo);
 
 		// Chryon container
@@ -88,12 +89,12 @@ function TV(scene){
 		else if(options.fail) resourceName="chyron2";
 		else resourceName="chyron";
 		var bg = new MakeSprite(resourceName);
-		bg.scale.x = bg.scale.y = window.screen.width/7680;
+		bg.scale.x = bg.scale.y = Game.width/15360;
 		chyron.addChild(bg);
 
 		// Chyron Text
 		if(!options.nothing){
-			var fontsize=100, max=14;
+			var fontsize=50*Game.width/960, max=14;
 			if(text.length>max){ // more than [max] chars...
 				fontsize = Math.floor(max*fontsize/text.length);
 			}
@@ -101,8 +102,8 @@ function TV(scene){
 		    text.scale.x = text.scale.y = 0.2;
 		    text.anchor.x = 0;
 		    text.anchor.y = 0.5;
-		    text.x = 45*Game.width/960;
-		    text.y = 115*Game.height/540;
+		    text.x = 45*Game.width/1920;
+		    text.y = 115*Game.width/1920;
 		    chyron.addChild(text);
 		}
 

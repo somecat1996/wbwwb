@@ -26,12 +26,12 @@ function PanicPeep(scene){
     self.setLover = function(type){
 
         if(type=="circle"){
-            self.x = 635;
-            self.y = 200;
+            self.x = 635*Game.width/960;
+            self.y = 200*Game.width/960;
             self.direction = Math.TAU*-0.12;
         }else{
-            self.x = 665;
-            self.y = 200;
+            self.x = 665*Game.width/960;
+            self.y = 200*Game.width/960;
             self.direction = Math.TAU*-0.10;
         }
 
@@ -43,7 +43,7 @@ function PanicPeep(scene){
     };
     self.callbacks.update = function(){
         if(self.isLover){
-            if(self.y<-500){
+            if(self.y<-500*Game.width/960){
                 self.kill();
             }
         }
