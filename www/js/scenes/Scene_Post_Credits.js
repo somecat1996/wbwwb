@@ -53,8 +53,8 @@ function Scene_Post_Credits(){
             // tmp = document.querySelector("#stage").childNodes[0];
             // document.querySelector("#stage").removeChild(tmp);
             // Game.init();
-            // Game.sceneManager.gotoScene("Preloader");
-            Game.sceneManager.gotoScene("Quote");
+            Game.sceneManager.gotoScene("Post_Post_Credits");
+            // Game.sceneManager.gotoScene("Quote");
             //}
         }
     });

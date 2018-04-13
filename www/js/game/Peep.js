@@ -73,7 +73,7 @@ function Peep(scene){
 
 		// Borders
 		if(self.loop){
-			var margin = 50; // NB: may need to be interactive
+			var margin = 50*Game.width/960; // NB: may need to be interactive
 			if(self.x<-margin) self.x=Game.width+margin;
 			if(self.x>Game.width+margin) self.x=-margin;
 			if(self.y<0) self.y=Game.height+margin*2;

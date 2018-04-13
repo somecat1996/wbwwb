@@ -139,7 +139,6 @@ Game.loadAssets = function(completeCallback, progressCallback, PRELOADER){
 
 	// PIXI
 	var loader = PIXI.loader;
-	loader.reset();
 	var resources = PIXI.loader.resources;
 
 	for(var key in manifest){

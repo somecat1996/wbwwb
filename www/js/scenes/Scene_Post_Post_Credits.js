@@ -18,13 +18,13 @@ function Scene_Post_Post_Credits(){
 
 	// Layers, yo.
 	var blackout = MakeSprite("blackout");
-	blackout.scale.x = blackout.scale.y = window.screen.width/960;
+	blackout.scale.x = blackout.scale.y = Game.width/960;
 	Game.stage.addChild(blackout);
 	var cont = new PIXI.Container();
 	Game.stage.addChild(cont);
 	cont.visible = false;
 	var logo = MakeSprite("logo");
-	logo.scale.x = logo.scale.y = window.screen.width/960;
+	logo.scale.x = logo.scale.y = Game.width/960;
 	cont.addChild(logo);
 
 	// _addButton
@@ -32,8 +32,9 @@ function Scene_Post_Post_Credits(){
 	var _addButton = function(x, labelFrame, callback){
 
 		var button = new PIXI.Container();
-		button.x = x;
-		button.y = 280;
+		button.scale.x = button.scale.y = Game.width/960;
+		button.x = x*Game.width/960;
+		button.y = 280*Game.width/960;
 		cont.addChild(button);
 
 		var bg = MakeMovieClip("end_button");
@@ -50,12 +51,12 @@ function Scene_Post_Post_Credits(){
 		button.mouseover = button.touchstart = function(){
 			isHovering = true;
 			bg.gotoAndStop(1);
-			Tween_get(button.scale).to({x:1.05, y:1.05}, _s(0.2));
+			Tween_get(button.scale).to({x:1.05*Game.width/960, y:1.05*Game.width/960}, _s(0.2));
 		};
 		button.mouseout = function(){
 			isHovering = false;
 			bg.gotoAndStop(0);
-			Tween_get(button.scale).to({x:1, y:1}, _s(0.2));
+			Tween_get(button.scale).to({x:Game.width/960, y:Game.width/960}, _s(0.2));
 		};
 		button.mousedown = button.touchend = function(){
 			isHovering = false;
@@ -78,8 +79,9 @@ function Scene_Post_Post_Credits(){
 	var _addSocialButton = function(x, icon, callback){
 
 		var button = MakeSprite(icon);
-		button.x = x;
-		button.y = 342;
+		button.scale.x = button.scale.y = Game.width/960;
+		button.x = x*Game.width/960;
+		button.y = 342*Game.width/960;
 		button.anchor.x = button.anchor.y = 0.5;
 		cont.addChild(button);
 
@@ -87,11 +89,11 @@ function Scene_Post_Post_Credits(){
 		button.interactive = true;
 		button.mouseover = button.touchstart = function(){
 			isHovering = true;
-			Tween_get(button.scale).to({x:1.2, y:1.2}, _s(0.2));
+			Tween_get(button.scale).to({x:1.2*Game.width/960, y:1.2*Game.width/960}, _s(0.2));
 		};
 		button.mouseout = function(){
 			isHovering = false;
-			Tween_get(button.scale).to({x:1, y:1}, _s(0.2));
+			Tween_get(button.scale).to({x:Game.width/960, y:Game.width/960}, _s(0.2));
 		};
 		button.mousedown = button.touchend = function(){
 			isHovering = false;
