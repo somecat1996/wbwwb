@@ -160,13 +160,14 @@ function _chyHats(d){
     if(caught.wearinghat){
         p.audience = 1;
         p.caughtWearingHat = true;
-        d.chyron = textStrings["notCoolAnymore"];
+        d.chyron = textStrings["HatsnotCoolAnymore"];
         return true;
     }
     return false;
 }
 
 function _chyGlasses(d){
+    console.log("caught")
     var p = d.photoData;
     var caught = d.caught({
         wearingglasses: {_CLASS_:"NormalPeep", wearingGlasses:true}
@@ -174,7 +175,7 @@ function _chyGlasses(d){
     if(caught.wearingglasses){
         p.audience = 1;
         p.caughtWearingGlasses = true;
-        d.chyron = textStrings["notCoolAnymore"];
+        d.chyron = textStrings["GsnotCoolAnymore"];
         return true;
     }
     return false;

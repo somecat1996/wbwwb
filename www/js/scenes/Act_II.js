@@ -48,6 +48,7 @@ function Stage_Screamer(self){
             })
             .otherwise(_chyLovers)
             .otherwise(_chyHats)
+            .otherwise(_chyGlasses)
             .otherwise(function(d){
                 var p = d.photoData;
                 var caught = d.caught({
@@ -83,6 +84,7 @@ function Stage_Screamer(self){
             })
             .otherwise(_cutLovers)
             .otherwise(_cutHats)
+            .otherwise(_cutGlasses)
             .otherwise(_cutPeeps);
             
         }

@@ -3,11 +3,12 @@
 ///////////////////////////////////
 var textStrings_EN = {
     // Act 1
-    "niceGlasses"          : "OOH NICE GLASSES"                                          ,
+    "niceGlasses"          : "OOH NICE GLASSES"                                      ,
     "niceHat"              : "OOH NICE HAT"                                          ,
     "outtaHere"            : "yeah git on outta here"                                ,
     "getARoom"             : "GROSS, GO GET A ROOM"                                  ,
-    "notCoolAnymore"       : "nvm hats aren't cool anymore"                          ,
+    "HatsnotCoolAnymore"   : "nvm hats aren't cool anymore"                          ,
+    "GsnotCoolAnymore"     : "nvm glasses aren't cool anymore"                       ,
     "tvOnTv"               : "A TV... ON TV!"                                        ,
     "cricky"               : "LIL' CRICKY <3"                                        ,
     "tooManyCrickets"      : "okay that's too many crickets"                         ,
