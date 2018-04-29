@@ -7,6 +7,8 @@ ACT I: THE SETUP
 
 ******************************/
 
+var kill = 0;
+
 function Stage_Start(self){
 
     // Create Peeps
@@ -21,24 +23,18 @@ function Stage_Hat(self){
 	var hat = new HatPeep(self);
     self.world.addPeep(hat);
 
+    var glasses = new GlassesPeep(self);
+    self.world.addPeep(glasses);
+
     // Director
     self.director.callbacks = {
         takePhoto: function(d){
 
             // DECLARATIVE
-            d.tryChyron(function(d){
-                var p = d.photoData;
-                var caught = d.caught({
-                    hat: {_CLASS_:"HatPeep"}
-                });
-                if(caught.hat){
-                    p.audience = 3;
-                    p.caughtHat = caught.hat;
-                    d.chyron = textStrings["niceHat"];
-                    return true;
-                }
-                return false;
-            }).otherwise(_chyPeeps);
+            d.tryChyron(_chyHatPeep)
+                .otherwise(_chyGlassesPeep)
+                .otherwise(_chyHats)
+                .otherwise(_chyPeeps);
 
         },
         movePhoto: function(d){
@@ -46,19 +42,17 @@ function Stage_Hat(self){
         },
         cutToTV: function(d){
 
-            // If you did indeed catch a hat peep...
-            var p = d.photoData;
-            if(p.caughtHat){
-                self.world.addBalancedPeeps(1); // Add with moar!
-                d.audience_cutToTV(function(peep){
-                    peep.wearHat();
-                }); // make all viewers wear HATS!
-                p.caughtHat.kill(); // Get rid of hat
-                Stage_Lovers(self); // Next stage
-            }else{
-                d.audience_cutToTV();
+            // DECLARATIVE
+            d.tryCut2TV(_cutHatPeep)
+                .otherwise(_cutGlassesPeep)
+                .otherwise(_cutHats)
+                .otherwise(_cutPeeps);
+            if(kill===1){
+                glasses.kill();
+            }else if(kill===2) {
+                hat.kill();
             }
-
+            Stage_Lovers(self);
         }
     };
 
@@ -82,6 +76,7 @@ function Stage_Lovers(self){
             // MODULAR & DECLARATIVE
             d.tryChyron(_chyLovers)
              .otherwise(_chyHats)
+             .otherwise(_chyGlasses)
              .otherwise(_chyPeeps);
 
         },
@@ -93,6 +88,7 @@ function Stage_Lovers(self){
             // MODULAR & DECLARATIVE
             d.tryCut2TV(_cutLovers)
              .otherwise(_cutHats)
+             .otherwise(_cutGlasses)
              .otherwise(_cutPeeps);
 
             // And whatever happens, just go to the next stage
@@ -109,6 +105,34 @@ function Stage_Lovers(self){
 ////// DECLARATIVE CHYRON MODULES /////
 ///////////////////////////////////////
 ///////////////////////////////////////
+
+function _chyHatPeep(d) {
+    var p = d.photoData;
+    var caught = d.caught({
+        hat: {_CLASS_:"HatPeep"}
+    });
+    if(caught.hat){
+        p.audience = 3;
+        p.caughtHat = caught.hat;
+        d.chyron = textStrings["niceHat"];
+        return true;
+    }
+    return false;
+}
+
+function _chyGlassesPeep(d) {
+    var p = d.photoData;
+    var caught = d.caught({
+        glasses: {_CLASS_:"GlassesPeep"}
+    });
+    if(caught.glasses){
+        p.audience = 3;
+        p.caughtGlasses = caught.glasses;
+        d.chyron = textStrings["niceGlasses"];
+        return true;
+    }
+    return false;
+}
 
 function _chyLovers(d){
     var p = d.photoData;
@@ -127,19 +151,35 @@ function _chyLovers(d){
     }
     return false;
 }
+
 function _chyHats(d){
     var p = d.photoData;
     var caught = d.caught({
-        hat: {_CLASS_:"NormalPeep", wearingHat:true}
+        wearinghat: {_CLASS_:"NormalPeep", wearingHat:true}
     });
-    if(caught.hat){
+    if(caught.wearinghat){
         p.audience = 1;
-        p.caughtHat = true;
+        p.caughtWearingHat = true;
         d.chyron = textStrings["notCoolAnymore"];
         return true;
     }
     return false;
 }
+
+function _chyGlasses(d){
+    var p = d.photoData;
+    var caught = d.caught({
+        wearingglasses: {_CLASS_:"NormalPeep", wearingGlasses:true}
+    });
+    if(caught.wearingglasses){
+        p.audience = 1;
+        p.caughtWearingGlasses = true;
+        d.chyron = textStrings["notCoolAnymore"];
+        return true;
+    }
+    return false;
+}
+
 function _chyPeeps(d){
     var p = d.photoData;
     if(d.scene.camera.isOverTV(true)){
@@ -176,6 +216,37 @@ function _chyPeeps(d){
 ///////////////////////////////////////
 ///////////////////////////////////////
 
+function _cutHatPeep(d) {
+    var p = d.photoData;
+    if (p.caughtHat) {
+        d.scene.world.addBalancedPeeps(1); // Add with moar!
+        d.audience_cutToTV(function (peep) {
+            peep.wearHat();
+        }); // make all viewers wear HATS!
+        p.caughtHat.kill(); // Get rid of hat
+        kill = 1;
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function _cutGlassesPeep(d) {
+    var p = d.photoData;
+    if (p.caughtGlasses) {
+        d.scene.world.addBalancedPeeps(1); // Add with moar!
+        d.audience_cutToTV(function (peep) {
+            peep.wearGlasses();
+        }); // make all viewers wear HATS!
+        p.caughtGlasses.kill(); // Get rid of hat
+        kill = 2;
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
 function _cutLovers(d){
     var p = d.photoData;
     if(p.caughtLovers){
@@ -192,9 +263,10 @@ function _cutLovers(d){
         return false;
     }
 }
+
 function _cutHats(d){
     var p = d.photoData;
-    if(p.caughtHat){
+    if(p.caughtWearingHat){
         // Only get the hat-wearers, make 'em take off the hat.
         d.audience_cutToTV(
             function(peep){ peep.takeOffHat(); },
@@ -209,6 +281,27 @@ function _cutHats(d){
         if(hatPeeps.length>0){
             var randomIndex = Math.floor(Math.random()*hatPeeps.length);
             hatPeeps[randomIndex].takeOffHat(true);
+        }
+        return false;
+    }
+}
+function _cutGlasses(d){
+    var p = d.photoData;
+    if(p.caughtWearingGlasses){
+        // Only get the hat-wearers, make 'em take off the hat.
+        d.audience_cutToTV(
+            function(peep){ peep.takeOffGlasses(); },
+            function(peep){ return peep.wearingGlasses; }
+        );
+        return true;
+    }else{
+        // And if not, have them decrease by 1 each time anyway.
+        var glassesPeeps = d.scene.world.peeps.slice(0).filter(function(peep){
+            return peep.wearingGlasses;
+        });
+        if(glassesPeeps.length>0){
+            var randomIndex = Math.floor(Math.random()*glassesPeeps.length);
+            glassesPeeps[randomIndex].takeOffGlasses(true);
         }
         return false;
     }

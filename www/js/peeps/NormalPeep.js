@@ -2,6 +2,7 @@ Game.addToManifest({
 	body: "sprites/peeps/body.json",
     face: "sprites/peeps/face.json",
     hat: "sprites/peeps/hat.json",
+    glasses: "sprites/peeps/glasses.json",
 
     squeak: "sounds/squeak.mp3"
 });
@@ -34,6 +35,7 @@ function NormalPeep(scene){
     self.hatMC = self.addMovieClip("hat");
     self.bodyMC = self.addMovieClip("body");
     self.faceMC = self.addMovieClip("face");
+    self.glassesMC = self.addMovieClip("glasses");
 
     // Set Type: Am I a circle or square?
     self.type = "???";
@@ -51,21 +53,39 @@ function NormalPeep(scene){
 
         // FRAMES: MANUALLY ANIMATE HAT
         var hat = self.hatMC;
-        var frame = hat.currentFrame;
+        var glasses = self.glassesMC;
+        var hatframe = hat.currentFrame;
+        var glassesframe = glasses.currentFrame;
         if(doubles==0){
-            if(self.wearingHat && frame<15){
-                frame++;
-                hat.gotoAndStop(frame);
-                if(frame==11){
+            if(self.wearingHat && hatframe<15){
+                hatframe++;
+                hat.gotoAndStop(hatframe);
+                if(hatframe==11){
                     self.bounce=1.6;
                     Game.sounds.squeak.play();
                 }
-                if(frame==15) self.faceMC.gotoAndStop(6);
+                if(hatframe==15) self.faceMC.gotoAndStop(6);
             }
-            if(!self.wearingHat && frame>=15){
-                frame++;
-                hat.gotoAndStop(frame);
-                if(frame==26) hat.gotoAndStop(0);
+            if(!self.wearingHat && hatframe>=15){
+                hatframe++;
+                hat.gotoAndStop(hatframe);
+                if(hatframe==26) hat.gotoAndStop(0);
+            }
+        }
+        if(doubles==0){
+            if(self.wearingGlasses && glassesframe<15){
+                glassesframe++;
+                glasses.gotoAndStop(glassesframe);
+                if(glassesframe==11){
+                    self.bounce=1.6;
+                    Game.sounds.squeak.play();
+                }
+                if(glassesframe==15) self.faceMC.gotoAndStop(6);
+            }
+            if(!self.wearingGlasses && glassesframe>=15){
+                glassesframe++;
+                glasses.gotoAndStop(glassesframe);
+                if(glassesframe==26) glasses.gotoAndStop(0);
             }
         }
 
@@ -255,6 +275,77 @@ function NormalPeep(scene){
             self.faceMC.gotoAndStop(0);
             self.hatMC.gotoAndStop(0);
             self.wearingHat = false;
+        }
+
+    };
+
+    self.wearingGlasses = false;
+    self.wearGlasses = function(){
+
+        self.clearAnims(); // just in case...
+
+        // 1) Stop & look
+        var tv = scene.tv;
+        self.stopWalking(true);
+        self.faceMC.gotoAndStop(1);
+        self.flip = (tv.x>self.x) ? 1 : -1;
+        var WAIT = Director.ZOOM_OUT_1_TIME + Director.SEE_VIEWERS_TIME;
+        WAIT += Math.random()*0.4; // random offset
+        self.isWatching = true;
+
+        // 2) Wear HAT! IN SYNCHRONIZED TIME
+        var HAT_TIME = Director.ZOOM_OUT_1_TIME + (Math.abs(self.x-tv.x)-60)/100;
+        self.setTimeout(function(){
+            self.wearingGlasses = true;
+        },_s(HAT_TIME));
+
+        // 3) And go on.
+        self.setTimeout(function(){
+            self.isWatching = false;
+            self.bounce = 1.2;
+            self.startWalking();
+        },_s(WAIT+1));
+
+    };
+    self.takeOffGlasses = function(instant){
+
+        self.clearAnims(); // just in case...
+
+        if(!instant){
+
+            // 1) Stop & look
+            var tv = scene.tv;
+            self.stopWalking(true);
+            self.faceMC.gotoAndStop(1);
+            self.flip = (tv.x>self.x) ? 1 : -1;
+            var WAIT = 4*BEAT + Math.random()*0.4;
+            self.isWatching = true;
+
+            // 2) Take off HAT!
+            self.setTimeout(function(){
+                self.wearingGlasses = false;
+                self.bounce = 1.1;
+
+                // Blink, then shame.
+                self.faceMC.gotoAndStop(2);
+                self.setTimeout(function(){
+                    self.faceMC.gotoAndStop(7);
+                },_s(0.2));
+
+            },_s( BEAT*1.75 + Math.random()*0.75 ));
+
+            // 3) And go on.
+            self.setTimeout(function(){
+                self.isWatching = false;
+                self.bounce = 1.2;
+                self.startWalking();
+                self.faceMC.gotoAndStop(0);
+            },_s(WAIT+0.06));
+
+        }else{
+            self.faceMC.gotoAndStop(0);
+            self.glassesMC.gotoAndStop(0);
+            self.wearingGlasses = false;
         }
 
     };

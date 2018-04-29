@@ -3,6 +3,7 @@
 ///////////////////////////////////
 var textStrings_EN = {
     // Act 1
+    "niceGlasses"          : "OOH NICE GLASSES"                                          ,
     "niceHat"              : "OOH NICE HAT"                                          ,
     "outtaHere"            : "yeah git on outta here"                                ,
     "getARoom"             : "GROSS, GO GET A ROOM"                                  ,

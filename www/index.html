@@ -63,6 +63,7 @@
 <script src="js/peeps/SnobbyPeep.js"></script>
 <script src="js/peeps/AngryPeep.js"></script>
 <script src="js/peeps/HatPeep.js"></script>
+<script src="js/peeps/GlassesPeep.js"></script>
 <script src="js/peeps/LoverPeep.js"></script>
 <script src="js/peeps/ProtestAnim.js"></script>
 <script src="js/peeps/HelpingAnim.js"></script>
@@ -95,8 +96,8 @@
     Game.stats = false;
     window.onload = function(){
         try{
-        Game.init();
-//        Game.init("Post_Credits");
+//        Game.init();
+        Game.init("Game");
         }catch(e){
         document.getElementById("warning").style.display = "block";
         }
