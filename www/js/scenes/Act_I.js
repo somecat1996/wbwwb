@@ -52,7 +52,9 @@ function Stage_Hat(self){
             }else if(kill===2) {
                 hat.kill();
             }
-            Stage_Lovers(self);
+            if(kill!==0){
+                Stage_Lovers(self);
+            }
         }
     };
 
